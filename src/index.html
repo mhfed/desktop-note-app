@@ -11,45 +11,62 @@
   <body>
     <div class="app">
       <aside class="sidebar">
-        <div class="sidebar__header">
+        <div class="sidebar__top">
           <div>
-            <p class="eyebrow">Desktop Notes</p>
+            <p class="eyebrow">macOS Notes</p>
             <h1>Ghi chú</h1>
           </div>
-          <button id="add-note" class="primary" type="button">+ Thêm</button>
+          <button id="add-note" class="button button--primary" type="button">
+            + Thêm ghi chú
+          </button>
+        </div>
+        <div class="search">
+          <span class="search__icon">⌘</span>
+          <input class="search__input" placeholder="Tìm kiếm ghi chú" type="text" />
         </div>
         <div class="sidebar__content">
-          <p class="section-title">Danh sách</p>
+          <div class="section-heading">
+            <p class="section-title">Danh sách</p>
+            <span class="badge" id="note-count">0</span>
+          </div>
           <ul id="note-list" class="note-list" role="list"></ul>
         </div>
       </aside>
       <main class="editor">
-        <div class="editor__toolbar">
+        <header class="editor__header">
           <div>
             <p class="section-title">Nội dung</p>
             <p id="note-updated" class="muted">Chọn ghi chú để chỉnh sửa</p>
           </div>
-          <button id="delete-note" class="ghost" type="button" disabled>
-            Xóa
-          </button>
-        </div>
+          <div class="editor__actions">
+            <button id="delete-note" class="button button--ghost" type="button" disabled>
+              Xóa
+            </button>
+            <button class="button button--outline" type="button">Xuất PDF</button>
+          </div>
+        </header>
         <div class="editor__body">
           <input
             id="note-title"
-            class="title-input"
-            placeholder="Tiêu đề"
+            class="input title-input"
+            placeholder="Tiêu đề ghi chú"
             type="text"
             disabled
           />
           <textarea
             id="note-body"
-            class="body-input"
+            class="textarea body-input"
             placeholder="Bắt đầu ghi chú..."
             disabled
           ></textarea>
         </div>
         <div id="empty-state" class="empty-state">
-          <p>Chưa có ghi chú nào. Hãy bấm <strong>+ Thêm</strong> để tạo ghi chú mới.</p>
+          <div>
+            <p class="empty-state__title">Tạo ghi chú mới</p>
+            <p class="empty-state__subtitle">
+              Bạn chưa có ghi chú nào. Hãy bấm <strong>+ Thêm ghi chú</strong> để bắt đầu.
+            </p>
+          </div>
         </div>
       </main>
     </div>

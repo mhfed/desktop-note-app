@@ -18,6 +18,7 @@ const noteUpdatedLabel = document.querySelector<HTMLParagraphElement>(
   '#note-updated',
 );
 const emptyState = document.querySelector<HTMLDivElement>('#empty-state');
+const noteCount = document.querySelector<HTMLSpanElement>('#note-count');
 
 let notes: Note[] = [];
 let activeNoteId: string | null = null;
@@ -89,6 +90,10 @@ const renderNotes = () => {
 
   if (emptyState) {
     emptyState.classList.toggle('visible', notes.length === 0);
+  }
+
+  if (noteCount) {
+    noteCount.textContent = `${notes.length}`;
   }
 };
 
