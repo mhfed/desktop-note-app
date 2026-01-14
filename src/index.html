@@ -2,11 +2,73 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Hello World!</title>
-
+    <title>Desktop Notes</title>
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'"
+    />
   </head>
   <body>
-    <h1>💖 Hello World!</h1>
-    <p>Welcome to your Electron application.</p>
+    <div class="app">
+      <aside class="sidebar">
+        <div class="sidebar__top">
+          <div>
+            <p class="eyebrow">macOS Notes</p>
+            <h1>Ghi chú</h1>
+          </div>
+          <button id="add-note" class="button button--primary" type="button">
+            + Thêm ghi chú
+          </button>
+        </div>
+        <div class="search">
+          <span class="search__icon">⌘</span>
+          <input class="search__input" placeholder="Tìm kiếm ghi chú" type="text" />
+        </div>
+        <div class="sidebar__content">
+          <div class="section-heading">
+            <p class="section-title">Danh sách</p>
+            <span class="badge" id="note-count">0</span>
+          </div>
+          <ul id="note-list" class="note-list" role="list"></ul>
+        </div>
+      </aside>
+      <main class="editor">
+        <header class="editor__header">
+          <div>
+            <p class="section-title">Nội dung</p>
+            <p id="note-updated" class="muted">Chọn ghi chú để chỉnh sửa</p>
+          </div>
+          <div class="editor__actions">
+            <button id="delete-note" class="button button--ghost" type="button" disabled>
+              Xóa
+            </button>
+            <button class="button button--outline" type="button">Xuất PDF</button>
+          </div>
+        </header>
+        <div class="editor__body">
+          <input
+            id="note-title"
+            class="input title-input"
+            placeholder="Tiêu đề ghi chú"
+            type="text"
+            disabled
+          />
+          <textarea
+            id="note-body"
+            class="textarea body-input"
+            placeholder="Bắt đầu ghi chú..."
+            disabled
+          ></textarea>
+        </div>
+        <div id="empty-state" class="empty-state">
+          <div>
+            <p class="empty-state__title">Tạo ghi chú mới</p>
+            <p class="empty-state__subtitle">
+              Bạn chưa có ghi chú nào. Hãy bấm <strong>+ Thêm ghi chú</strong> để bắt đầu.
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
