@@ -1,8 +1,204 @@
+:root {
+  color-scheme: light;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f4f6fb;
+  color: #121826;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-    sans-serif;
-  margin: auto;
-  max-width: 38rem;
-  padding: 2rem;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.app {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 100vh;
+}
+
+.sidebar {
+  background: #ffffff;
+  border-right: 1px solid #e1e6f1;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.sidebar__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sidebar__header h1 {
+  margin: 4px 0 0;
+  font-size: 1.35rem;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.7rem;
+  color: #5c6470;
+  margin: 0;
+}
+
+.section-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #5c6470;
+  margin: 0 0 8px;
+}
+
+.note-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.note-card {
+  border: 1px solid transparent;
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: #f6f7fb;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.note-card.active {
+  border-color: #5b79ff;
+  background: #eef1ff;
+}
+
+.note-card__title {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.note-card__preview {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #5c6470;
+  line-height: 1.4;
+}
+
+.editor {
+  padding: 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+}
+
+.editor__toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.editor__body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+
+.title-input {
+  font-size: 1.5rem;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid #d4d9e7;
+  background: #ffffff;
+}
+
+.body-input {
+  flex: 1;
+  resize: none;
+  min-height: 320px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  border: 1px solid #d4d9e7;
+  background: #ffffff;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 18px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button.primary {
+  background: #5b79ff;
+  color: #ffffff;
+}
+
+button.ghost {
+  background: #f0f2f8;
+  color: #2c3342;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.muted {
+  margin: 6px 0 0;
+  color: #7b8596;
+  font-size: 0.85rem;
+}
+
+.empty-state {
+  position: absolute;
+  inset: 120px 40px 32px;
+  border: 1px dashed #cbd3e1;
+  border-radius: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px;
+  color: #5c6470;
+  background: #fafbff;
+}
+
+.empty-state.visible {
+  display: flex;
+}
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    border-right: none;
+    border-bottom: 1px solid #e1e6f1;
+  }
+
+  .editor {
+    padding: 24px;
+  }
+
+  .empty-state {
+    inset: 120px 24px 24px;
+  }
 }
